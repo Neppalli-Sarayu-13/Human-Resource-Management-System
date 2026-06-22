@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRMS - Employee Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="../static/images/Srinidhi_associates_logo.jpeg">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f8;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: #0f0f58;
+            color: white;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .welcome {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #0f0f58;
+        }
+
+        .card p {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .logout {
+            padding: 8px 14px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .logout:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="../static/images/Srinidhi_associates_logo.jpeg" class="logo">
+            SRINIDHI ASSOCIATES 
+        </div>
+
+        <a class="logout" href="/logout">Logout</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+        <div class="welcome">
+            <h2>Welcome, {{ username }}</h2>
+            <p>Employee Dashboard - Manage your profile, attendance, and tasks.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>My Profile</h3>
+                <p>View and update your personal details</p>
+            </div>
+            <div class="card">
+                <h3>Attendance</h3>
+                <p>Check your daily attendance records</p>
+            </div>
+            <div class="card">
+                <h3>Leave Requests</h3>
+                <p>Apply and track your leaves</p>
+            </div>
+            <div class="card">
+                <h3>Tasks</h3>
+                <p>View assigned tasks and status</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

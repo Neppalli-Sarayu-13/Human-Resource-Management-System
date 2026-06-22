@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRMS - Srinidhi Associates</title>
+    <link rel="icon" type="image/jpeg" href="../static/images/Srinidhi_associates_logo.jpeg">
+    <style>
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: url("../static/images/background_img.jpg") no-repeat center center/cover;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 25px;
+        background: rgba(255,255,255,0.08);
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 22px;
+        font-weight: bold;
+        color:aliceblue
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        gap: 50px;
+    }
+
+    .card {
+        width: 380px;
+        padding: 30px;
+        border-radius: 20px;
+        padding-right: 3%;
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .card:hover {
+        transform: perspective(1000px) rotateY(6deg) scale(1.03);
+    }
+
+    .left img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    h2 {
+        text-align: center;
+        
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #00c6ff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    button:hover {
+        background: #0072ff;
+    }
+    .forgotpassword{
+        text-align:center; 
+        margin-top:10px;
+        color:#00c6ff; 
+        text-decoration:none; 
+        font-size:14px;
+    }
+
+    p{
+        color:gray;
+        font-size: small;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="../static/images/Srinidhi_associates_logo.jpeg" class="logo">
+                SRINIDHI ASSOCIATES
+        </div>
+    </div>
+    <div class="container">
+        <form class="card" action="/login" method="POST">
+            <h2>Credentials</h2>
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+            <a href="#" class="forgotpassword">Forgot Password?</a>
+            <button type="submit">Unlock Dashboard</button>
+            {% if error %}
+            <p style="color:red;">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

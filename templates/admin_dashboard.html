@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRMS - Admin Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="../static/images/Srinidhi_associates_logo.jpeg">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f8;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .logout {
+            padding: 8px 14px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .logout:hover {
+            background: darkred;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .welcome {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #1a1a2e;
+        }
+
+        .card p {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .admin-card {
+            border-left: 5px solid #1a1a2e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #1a1a2e;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="../static/images/Srinidhi_associates_logo.jpeg" class="logo">
+            SRINIDHI ASSOCIATES 
+        </div>
+        <a class="logout" href="/logout">Logout</a>
+    </div>
+    <div class="container">
+        <div class="welcome">
+            <h2>Welcome Admin, {{ username }} </h2>
+            <p>Manage employees, attendance, and system status</p>
+        </div>
+        <div class="grid">
+            <div class="card admin-card">
+                <h3>Active Employees</h3>
+                <p>{{ active_count }} employees currently logged in</p>
+            </div>
+            <div class="card admin-card">
+                <h3>Manage Employees</h3>
+                <p>Add / Update / Delete employees</p>
+            </div>
+            <div class="card admin-card">
+                <h3>Reports</h3>
+                <p>View attendance and system reports</p>
+            </div>
+            <div class="card admin-card">
+                <h3>Settings</h3>
+                <p>System configuration</p>
+            </div>
+        </div>
+        <div class="card" style="margin-top:25px;">
+            <h3>All Employee Details</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Mail ID</th>
+                    <th>Phone Number</th>
+                    <th>Salary</th>
+                    <th>Join Date</th>
+                    
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td> 
+                    <td>{{ user[1] }}</td>  
+                    <td>{{ user[2] }}</td>  
+                    <td>{{ user[3] }}</td>  
+                    <td>{{ user[4] }}</td>  
+                    <td>{{ user[5] }}</td>  
+                    <td>{{ user[6] }}</td>  
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="card" style="margin-top:25px;">
+            <h3>Logged-in Employee Details</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                </tr>
+                {% for user in active_users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
